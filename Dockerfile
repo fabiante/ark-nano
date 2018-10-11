@@ -8,6 +8,9 @@ ENV PORT_SERVER 27015
 EXPOSE ${PORT_STEAM} 32330 ${PORT_SERVER}
 EXPOSE ${PORT_STEAM}/udp ${PORT_SERVER}/udp
 
+# Volume
+VOLUME [ "/usr/games/ark" ]
+
 # Adjusting System limits (because ARK is a bitch and needs at least 16GB+ RAM and 1M opend files at all times)
 RUN echo "fs.file-max=100000" >> /etc/sysctl.conf && sysctl -p
 RUN echo "* soft nofile 1000000" >> /etc/security/limits.conf
