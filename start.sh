@@ -12,4 +12,4 @@ echo "Timeout 3 min..."
 sleep 2000000000
 
 echo "Starting server..."
-/usr/games/ark/steamapps/common/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=example -server -log
+/usr/games/ark/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=example -server -log
