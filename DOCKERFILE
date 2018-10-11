@@ -1,17 +1,18 @@
 FROM ubuntu:18.04
 
-# Expose Steam ports
+# Environment variables
 ENV PORT_STEAM 7778
 ENV PORT_SERVER 27015
 
+# Expose Steam ports
 EXPOSE ${PORT_STEAM} 32330 ${PORT_SERVER}
 EXPOSE ${PORT_STEAM}/udp ${PORT_SERVER}/udp
 
 # Adjusting System limits (because ARK is a bitch and needs at least 16GB+ RAM and 1M opend files at all times)
-# TODO: This might not work when creating the image but instead when running the container
 RUN echo "fs.file-max=100000" >> /etc/sysctl.conf && sysctl -p
 RUN echo "* soft nofile 1000000" >> /etc/security/limits.conf
 RUN echo "* hard nofile 1000000" >> /etc/security/limits.conf
+RUN echo "session required pam_limits.so" >> /etc/pam.d/root # TODO: Check if this is correctly set
 
 # Required for steamcmd installation
 RUN dpkg --add-architecture i386
@@ -33,4 +34,4 @@ RUN /usr/games/steamcmd +quit
 
 COPY start.sh /usr/games/
 
-ENTRYPOINT [ "/usr/games/start.sh" ]
+CMD [ "/bin/bash", "/usr/games/start.sh" ]
