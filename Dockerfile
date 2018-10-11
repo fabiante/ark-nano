@@ -7,6 +7,7 @@ ENV PORT_SERVER 27015
 # Expose Steam ports
 EXPOSE ${PORT_STEAM} 32330 ${PORT_SERVER}
 EXPOSE ${PORT_STEAM}/udp ${PORT_SERVER}/udp
+EXPOSE 7777
 
 # Volume
 VOLUME [ "/usr/games/ark" ]
