@@ -3,6 +3,10 @@
 cd /usr/games/
 
 # Install Ark
-echo "Trying to install / update ARK"
+echo "Creating folder for ARK installation"
 mkdir ark
-./steamcmd +login anonymous +force_install_dir ./ark +app_update 376030 +quit
+echo "Trying to install / update ARK..."
+./steamcmd +login anonymous +force_install_dir /usr/games/ark +app_update 376030 +quit
+
+echo "Starting server..."
+/usr/games/ark/ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?SessionName=example -server -log
