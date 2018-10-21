@@ -13,7 +13,7 @@ Docker and some knowledge about it of course.
 Build the docker image from `Dockerfile`.
 
 ```
-sudo docker build -t ark-nano .
+$ sudo docker build -t ark-nano .
 ```
 
 ### Firewall
@@ -39,7 +39,7 @@ and store them safely while you reset the container.
 Simply create the directory.
 
 ```
-mkdir /usr/games/ark-nano-volume
+$ mkdir /usr/games/ark-nano-volume
 ```
 
 Your ark and steam installation will be saved there. It is also good practice to
@@ -53,13 +53,23 @@ Your saved content will be located under `/usr/games/ark-nano-volume/ShooterGame
 You can run the container via executing the following line.
 
 ```
-sudo docker run -p 7778:7778/udp -p 7777:7777/udp -p 27015:27015/udp -p 27020:27020 -d -v /usr/games/ark-nano-volume:/usr/games/ark --name ark-nano ark-nano
+$ sudo docker run -p 7778:7778/udp -p 7777:7777/udp -p 27015:27015/udp -p 27020:27020 -d -v /usr/games/ark-nano-volume:/usr/games/ark --name ark-nano ark-nano
 ```
 
 It will take care of containers port forwarding, volume sharing and starting of the container.
 
 Note: The startup process of an ARK: Survival Evolved server may take up to **half
 an hour** depending on the available hardware. Time for necessary steam updates **not included**. Be very patient!
+
+### Make maintenance easier
+
+We have some optional terminal aliases you can use to check, stop or restart your server.
+
+```
+$ sudo ./ark-shortcuts.sh
+```
+
+You can check the aliases function via executing `$ ark-help`.
 
 ### Join your game
 
