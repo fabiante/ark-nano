@@ -1,5 +1,7 @@
 # ark-nano 🦕
 
+**This repo has been archived in favor of [steam-game-servers](https://github.com/FabianTe/steam-game-servers), a single repository for multiple Dockerfile related to Steam Game Servers.**
+
 A minimal way to host your ark server with docker.
 
 *Disclaimer:* This image is still in it's early days. Always backup your saves and configuration files. If you find any bugs or are having problems, let us now in the [issues section](https://github.com/FabianTe/ark-nano/issues)!
